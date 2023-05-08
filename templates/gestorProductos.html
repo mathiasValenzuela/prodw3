@@ -1,0 +1,58 @@
+{% extends 'layout.html' %}
+
+{% block title %} Gestor de productos {% endblock %}
+
+{% block body %}
+<div class="container col-md-10">
+    <h1>Gestor de productos</h1>
+</div>
+
+
+<table class="table table-striped table-dark table-sm">
+    <form action="/agregarProducto" method="POST">
+        <thead class="thead-dark">
+            <tr>
+                <td>#</td>
+                <td><input type="text" placeholder="url imagen" name="url_img"></td>
+                <td><input type="text" placeholder="nombre producto" name="nombre"></td>
+                <td><input type="text/number" placeholder="precio unitario" min="40" name="precio_unitario"></td>
+                <td><input type="number" placeholder="cantidad de stock" min="1" max="100" name="cantidad"></td>
+                <td><input type="text" placeholder="descripcion" name="descripcion"></td>
+                <td>
+                    <button type="submit" class="btn btn-success">agregar</button>
+                    
+                </td>
+               
+            </tr>
+    
+        </thead>
+    </form>
+    
+    {% for producto in productos %}
+    <form action="/actualizar_producto" method="POST">
+        <tbody>
+           
+            <tr>
+                <td><input type="text" name="id" value="{{ producto['id'] }}" readonly="readonly"></td>
+                <td><input type="text" name="url_img" value="{{ producto['url_img'] }}"></td>
+                <td><input type="text" name="nombre" value="{{ producto['nombre'] }}"></td>
+                <td><input type="number" name="precio_unitario" value="{{ producto['precio_unitario'] }}"></td>
+                <td><input type="number" name="cantidad" value="{{ producto['cantidad'] }}"></td>
+                <td><input type="text" name="descripcion" value="{{ producto['descripcion'] }}"></td>
+                
+                <td>
+                    <button type="submit" class="btn btn-primary">actualizar</button>
+    
+                    <a href="/eliminar_producto/{{ producto['id'] }}" class="btn btn-danger">eliminar</a>
+                </td>
+            </tr>
+            
+        </tbody>
+    </form>
+    {% endfor %}
+
+    
+    
+</table>
+
+{% endblock %}

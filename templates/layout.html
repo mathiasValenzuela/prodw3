@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
+    <link rel="icon" href="https://i.pinimg.com/originals/ba/83/21/ba8321eeaa30301086de21adeca98bf1.png">
+    <title>{% block title %}titulo{% endblock %}</title>
+
+    {% block navbar %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/master">Productos</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor02"
+            aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarColor02">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="/shoppingList">lista de compras <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/gestorProductos">gestor de productos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/Logout">cerrar sesion</a>
+                </li>
+                
+            </ul>
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+    {% endblock %}
+
+</head>
+
+<body id="body">
+
+
+
+
+
+
+    {% block body %}
+    body
+    {% endblock %}
+
+
+
+</body>
+
+{% block footer %}
+<footer >
+    <footer class="page-footer font-small mdb-color lighten-3 pt-4">
+
+        <!-- Footer Elements -->
+        <div class="container">
+      
+          <!--Grid row-->
+          <div class="row">
+      
+            <!--Grid column-->
+            <div class="col-lg-2 col-md-12 mb-4">
+      
+              <!--Image-->
+              <div class="view overlay z-depth-1-half">
+                <img src="https://keepcoding.io/es/wp-content/uploads/sites/4/2018/11/cabecera-razones-pyhton-cero-820x400.png" class="img-fluid"
+                  alt="">
+                <a href="">
+                  <div class="mask rgba-white-light"></div>
+                </a>
+              </div>
+      
+            </div>
+            <!--Grid column-->
+      
+            <!--Grid column-->
+            <div class="col-lg-2 col-md-6 mb-4">
+      
+              <!--Image-->
+              <div class="view overlay z-depth-1-half">
+                <img src="https://dri.es/files/cache/blog/mysql-logo-1440w.jpg" class="img-fluid"
+                  alt="">
+                <a href="">
+                  <div class="mask rgba-white-light"></div>
+                </a>
+              </div>
+      
+            </div>
+            <!--Grid column-->
+      
+            <!--Grid column-->
+            <div class="col-lg-2 col-md-6 mb-4">
+      
+              <!--Image-->
+              <div class="view overlay z-depth-1-half">
+                <img src="https://miro.medium.com/max/1200/1*Vr5hW7ykUC3l1V1yHa6Rfw.png" class="img-fluid"
+                  alt="">
+                <a href="">
+                  <div class="mask rgba-white-light"></div>
+                </a>
+              </div>
+      
+            </div>
+            <!--Grid column-->
+      
+            <!--Grid column-->
+            <div class="col-lg-2 col-md-12 mb-4">
+      
+              <!--Image-->
+              <div class="view overlay z-depth-1-half">
+                <img src="https://i0.wp.com/pythonprogramming.altervista.org/wp-content/uploads/2019/06/flask1.png?fit=438%2C245&ssl=1" class="img-fluid"
+                  alt="">
+                <a href="">
+                  <div class="mask rgba-white-light"></div>
+                </a>
+              </div>
+      
+            </div>
+            <!--Grid column-->
+      
+            <!--Grid column-->
+            <div class="col-lg-2 col-md-6 mb-4">
+      
+              <!--Image-->
+              <div class="view overlay z-depth-1-half">
+                <img src="https://www.radiosanjoaquin.cl/wp-content/uploads/2015/06/sede-sanjoaquin-696x464.jpg" class="img-fluid"
+                  alt="">
+                <a href="">
+                  <div class="mask rgba-white-light"></div>
+                </a>
+              </div>
+      
+            </div>
+            <!--Grid column-->
+      
+            <!--Grid column-->
+            
+            <!--Grid column-->
+      
+          </div>
+          <!--Grid row-->
+      
+        </div>
+        <!-- Footer Elements -->
+      
+        <!-- Copyright -->
+        <div class="footer-copyright text-center py-3">© 2023 Copyright:
+          <a href="http://www.duoc.cl/admision/">duoc.cl</a>
+        </div>
+        <!-- Copyright -->
+      
+      </footer>
+      <!-- Footer -->
+
+</footer>
+{% endblock %}
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+
+</html>

@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+{% block title %} Edicion cantidad {% endblock %}
+
+{% block body %}
+<center>
+    <div class="card card-body col-md-7">
+        <h4>actualice solo la cantidad</h4>
+        <form action="/shopListAct" method="POST">
+            
+            <div class="form-control">
+                <input type="number" name="id" value="{{ lista['id'] }}" readonly="read">
+            </div>
+            <div class="form-control">
+                <input type="number" name="nro_pedido" value="{{ lista['nro_pedido'] }}" readonly="read">
+            </div>
+            <div class="form-control">
+                <input type="text" name="nombre" value="{{ lista['nombre'] }}" readonly="readonly">
+            </div>
+            <div class="form-control">
+                <input type="number" name="precio_unitario" value="{{ lista['precio_unitario'] }}" readonly="readonly">
+            </div>
+            <div class="form-control">
+                
+                <input type="number" name="cantidad_requerida" value="{{ lista['cantidad_requerida'] }}"> 
+            </div>
+            
+            
+            
+            
+            <button type="submit" class="btn btn-success btn-block">
+                guardar
+            </button>
+        </form>
+    </div>
+
+</center>
+{% endblock %}

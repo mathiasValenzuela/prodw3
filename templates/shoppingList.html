@@ -1,0 +1,49 @@
+{% extends 'layout.html' %}
+
+{% block title %} ShoppingList {% endblock %}
+
+
+{% block body %}
+    
+<div class="container col-md-10">
+    <h1>Listado de productos a comprar</h1>
+</div>
+
+<div class="container col-md-10">
+    <table class="table table-striped table-dark table-sm">
+        <thead class="thead-dark">
+            <tr>
+                <td scope="col">id</td>
+                <td scope="col">nro pedido</td>
+                <td scope="col">nombre</td>
+                <td scope="col">precio unitario</td>
+                <td scope="col">cantidad requerida</td>
+                <td scope="col">subtotal</td>
+                <td scope="col">estado</td>
+            </tr>
+        </thead>
+        {% for pedido in lista %}
+        
+            <form action="/editar" method="POST">
+                <tbody>
+                    <tr>
+                        <td><input type="number" name="id" value="{{ pedido['id'] }}" readonly="readonly"></td>
+                        <td>{{ pedido['nro_pedido'] }}</td>
+                        <td>{{ pedido['nombre'] }}</td>
+                        <td>{{ pedido['precio_unitario'] }}</td>
+                        <td><input type="number" value="{{ pedido['cantidad_requerida'] }}"></td>
+                        <td>{{pedido['sub_total']}}</td>
+                        
+                        <td>
+                            <button type="submit" class="btn btn-primary">editar cantidad</button>
+                            <a href="/eliminar/{{ pedido['id'] }}" class="btn btn-danger">eliminar</a>
+                        </td>
+                    </tr>   
+                </tbody>
+            </form>
+        
+        {% endfor %}
+    </table>
+</div>
+
+{% endblock %}

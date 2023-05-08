@@ -1,0 +1,10 @@
+-instalar dependencias de:
+    pip install flask flask-mysql
+-ejecutar el archio 'db.sql' en maria db
+-situarse en la carpeta raiz del proyecto y ejecutar:
+    python app.py
+
+tupla de usuario para ingresar
+{email: dwy4101@admin.cl,
+ password: admin   
+}
