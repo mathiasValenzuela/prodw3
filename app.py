@@ -1,6 +1,6 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, session
+from flask import Flask, render_template, request, redirect, url_for, flash, session, jsonify
 from flask_mysqldb import MySQL, MySQLdb
-import random
+
 app = Flask(__name__)
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
@@ -11,10 +11,7 @@ mysql = MySQL(app)
 
 app.secret_key = 'mysecretkey'
 
-#miLista = list(range(999, 9999))
-#random.shuffle(miLista)
-# print(miLista[:10])
-#nro_pedido = miLista[:1]
+
 
 
 @app.route('/')
@@ -192,7 +189,7 @@ def pushProducto():
         miLista = list(range(999, 9999))
 
         random.shuffle(miLista)
-        # print(miLista[:10])
+       
         nro_pedido = miLista[:1]
 
         nombre = request.form['nombre']
@@ -206,6 +203,31 @@ def pushProducto():
 
         mysql.connection.commit()
         return redirect(url_for('master'))
+    
+@app.route('/apiProductos')
+def get():   
+        cur = mysql.connection.cursor()
+        cur.execute('select * from producto')
+        data = cur.fetchall()
+        productos = []
+        producto = {}
+        for fila in data:
+            producto = {'id' : fila['id'],
+                        'nombre' : fila['nombre']
+                        ,'precio_unitario' : fila['precio_unitario']
+                        ,'cantidad' : fila['cantidad']
+                        ,'descripcion' : fila['descripcion']
+                        ,'url_img' : fila['url_img']
+                        }
+            
+            productos.append(producto)
+            producto = {}
+        return jsonify('productos: ',productos)
+        
+      
+    
+
+
 
 if __name__ == '__main__':
 
